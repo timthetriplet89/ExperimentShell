@@ -1,9 +1,11 @@
 from __future__ import division
 from sklearn.model_selection import train_test_split
 from sklearn import datasets
-from first_package import HardCodedClassifier
-iris = datasets.load_iris()
+from decimal import getcontext, Decimal
 import random
+import HardCodedClassifier
+
+iris = datasets.load_iris()
 
 randomNum = random.randrange(99)
 
@@ -24,6 +26,7 @@ for i in range(num_rows_test_data):
     if predictions[i] == test_targets[i]:
         countAccuratePredictions += 1
 
-percentAccuracy = countAccuratePredictions / test_targets.size
+percentAccuracy = countAccuratePredictions / test_targets.size * 100
 
-print "%f accuracy - %d accurate predictions out of %d items" % (percentAccuracy, countAccuratePredictions, test_targets.size)
+getcontext().prec = 2
+print "%d%% Accuracy - %d accurate predictions out of %d items" % (percentAccuracy, countAccuratePredictions, test_targets.size)

@@ -15,8 +15,6 @@ class HardCodedClassifier(object):
     # NEEDS TO BE TESTED
     #
     def predict(self, test_data):
-        # num_rows, num_cols = test_data.shape            # This doesn't work and I don't know why
-        # print "Classifying %d instances" % num_rows
         predictions = []
         for instance in test_data:
             predictions.append(0)
